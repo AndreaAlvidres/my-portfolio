@@ -1,188 +1,1019 @@
-<div style="width: 1440px; height: 1024px; position: relative; background: #010C4F; overflow: hidden">
-  <img style="width: 1188.29px; height: 2112.52px; left: -406.47px; top: 1155.34px; position: absolute; transform: rotate(-90deg); transform-origin: top left; box-shadow: 13.899999618530273px 13.899999618530273px 13.899999618530273px; filter: blur(6.95px)" src="https://placehold.co/1188x2113" />
-  <div style="width: 382px; height: 301px; left: 176px; top: 284px; position: absolute; color: #F1FAFF; font-size: 100px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">M</div>
-  <div style="width: 137px; height: 197px; left: 524px; top: 379px; position: absolute; color: #F1FAFF; font-size: 125px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">Y</div>
-  <div style="width: 306px; height: 309px; left: 355px; top: 431px; position: absolute; color: #F1FAFF; font-size: 100px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">P</div>
-  <div style="width: 711px; height: 197px; left: 553px; top: 543px; position: absolute; color: #F1FAFF; font-size: 125px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">ORTFOLIO</div>
-  <div style="width: 1326px; height: 67px; left: 64px; top: 50px; position: absolute; background: #D3E0FF; border-radius: 50px"></div>
-  <div style="width: 266px; height: 67px; left: 594px; top: 742px; position: absolute; background: #D3E0FF; border-radius: 50px"></div>
-  <div style="left: 115px; top: 62px; position: absolute; color: #612DA3; font-size: 30px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">About Me</div>
-  <div style="left: 640px; top: 755px; position: absolute; color: #612DA3; font-size: 30px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">ABOUT ME</div>
-  <div style="left: 379px; top: 62px; position: absolute; color: #612DA3; font-size: 30px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">Education</div>
-  <div style="left: 642px; top: 62px; position: absolute; color: #612DA3; font-size: 30px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">Experience</div>
-  <div style="left: 1227px; top: 62px; position: absolute; color: #612DA3; font-size: 30px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">Contact</div>
-  <div style="left: 909px; top: 62px; position: absolute; color: #612DA3; font-size: 30px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">Dig. Art Gallery</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Portfolio</title>
+
+<!-- Google Fonts: Rosarivo for body / interface text -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rosarivo:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  @font-face {
+    font-family: 'Billa Mount';
+    src: url('./fonts/BillaMount.ttf') format('truetype'),
+         url('./fonts/BillaMount.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  :root{
+    --bg-deep:      #010C4F;   /* deep space navy */
+    --bg-mid:       #1B1660;   /* mid indigo */
+    --bg-violet:    #302B7D;   /* upper hero violet */
+    --purple:       #4B2E8F;   /* card / pill purple */
+    --purple-soft:  rgba(75, 46, 143, 0.45);
+    --ice-blue:     #BDE3FF;   /* glow lines / accents */
+    --ice-blue-dim: rgba(189, 227, 255, 0.35);
+    --lavender:     #D3E0FF;   /* nav pill background */
+    --lavender-text:#C9D2FF;   /* soft lavender body text */
+    --white:        #F7F8FF;
+    --contact-purple:#4F2793;
+    --contact-blue:  #6382FF;
+    --contact-dark:  #150F45;
+
+    --font-display: 'Billa Mount', 'Rosarivo', serif;
+    --font-body: 'Rosarivo', serif;
+
+    --nav-w: 84px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:var(--font-body);
+    color:var(--white);
+    background:var(--bg-deep);
+    height:100vh;
+    overflow-y:scroll;
+    overflow-x:hidden;
+  }
+
+  ::selection{ background:var(--ice-blue); color:var(--bg-deep); }
+
+  img{ max-width:100%; display:block; }
+
+  a{ color:inherit; text-decoration:none; }
+
+  .h-scroll {
+  display: grid;
+  grid-auto-flow: column;                /* Forces new items into columns instead of rows */
+  grid-auto-columns: minmax(250px, 1fr); /* Optional: Sets a minimum width for each card/item */
+  overflow-x: auto;                      /* Enables horizontal scroll */
+  overflow-y: hidden;
+  gap: 16px;                             /* Adds spacing between items */
+}
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    *{ animation-duration:0.001ms !important; transition-duration:0.001ms !important; }
+  }
+
+  .side-nav{
+    position:fixed;
+    top:0; left:0;
+    height:100vh;
+    width:var(--nav-w);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:28px;
+    z-index:100;
+    background:linear-gradient(180deg, rgba(1,12,79,0.0) 0%, rgba(1,12,79,0.35) 15%, rgba(1,12,79,0.35) 85%, rgba(1,12,79,0.0) 100%);
+    transition:transform .35s ease;
+  }
+
+  .side-nav .nav-line{
+    position:absolute;
+    top:12%; bottom:12%; left:50%;
+    width:1px;
+    transform:translateX(-50%);
+    background:linear-gradient(180deg, transparent, var(--ice-blue-dim) 15%, var(--ice-blue-dim) 85%, transparent);
+    z-index:-1;
+  }
+
+  .nav-dot{
+    position:relative;
+    width:14px; height:14px;
+    border-radius:50%;
+    background:rgba(211,224,255,0.25);
+    border:1.5px solid var(--lavender);
+    cursor:pointer;
+    box-shadow:0 0 0 rgba(189,227,255,0);
+    transition:background .25s ease, box-shadow .25s ease, transform .25s ease;
+  }
+  .background{
+    background: cover;
+  }
+
+  .nav-dot:hover,
+  .nav-dot:focus-visible{
+    background:var(--ice-blue);
+    box-shadow:0 0 14px 3px rgba(189,227,255,0.65);
+    transform:scale(1.15);
+    outline:none;
+  }
+
+  .nav-dot.active{
+    background:var(--white);
+    box-shadow:0 0 16px 4px rgba(189,227,255,0.8);
+  }
+
+  .nav-dot .tooltip{
+    position:absolute;
+    left:26px; top:50%;
+    transform:translateY(-50%) translateX(-6px);
+    white-space:nowrap;
+    background:var(--lavender);
+    color:var(--bg-deep);
+    font-family:var(--font-body);
+    font-size:13px;
+    letter-spacing:.02em;
+    padding:6px 14px;
+    border-radius:999px;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .2s ease, transform .2s ease;
+    box-shadow:0 4px 18px rgba(1,12,79,0.45);
+  }
+
+  .nav-dot:hover .tooltip,
+  .nav-dot:focus-visible .tooltip{
+    opacity:1;
+    transform:translateY(-50%) translateX(0);
+  }
+
+  .nav-toggle{
+    position:fixed;
+    top:22px; left:22px;
+    z-index:110;
+    width:42px; height:42px;
+    border-radius:50%;
+    border:1px solid var(--ice-blue-dim);
+    background:rgba(1,12,79,0.55);
+    backdrop-filter:blur(6px);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+  }
+  .nav-toggle img{ width:20px; height:20px; object-fit:contain; }
+
+  @media (max-width: 860px){
+    .side-nav{
+      transform:translateX(-100%);
+      background:rgba(1,12,79,0.92);
+      width:180px;
+      align-items:flex-start;
+      padding-left:28px;
+      gap:22px;
+    }
+    .side-nav.open{ transform:translateX(0); }
+    .side-nav .nav-line{ display:none; }
+    .nav-dot .tooltip{ opacity:1; position:static; transform:none; background:none; color:var(--lavender-text); padding:0; box-shadow:none; font-size:14px; }
+    .nav-dot{ display:flex; align-items:center; gap:10px; width:auto; height:auto; background:none; border:none; }
+    .nav-dot::before{ content:''; width:10px; height:10px; border-radius:50%; border:1.5px solid var(--lavender); background:rgba(211,224,255,.25); }
+    .nav-dot.active{ background:none; box-shadow:none; }
+    .nav-dot.active::before{ background:var(--white); box-shadow:0 0 10px 2px rgba(189,227,255,.8); }
+    .nav-toggle{ display:flex; }
+  }
+  section{
+    position:relative;
+    min-height:100vh;
+    width:100%;
+    padding-left:var(--nav-w);
+    overflow:hidden;
+  }
+  @media (max-width:860px){ section{ padding-left:0; } }
+
+  .section-inner{
+    max-width:1200px;
+    margin:0 auto;
+    padding:100px 60px 70px;
+    position:relative;
+    z-index:2;
+  }
+  @media (max-width:640px){ .section-inner{ padding:100px 24px 60px; } }
+
+  .script-heading{
+    font-family:var(--font-display);
+    font-weight:400;
+    color:var(--white);
+    text-shadow:0 0 28px rgba(189,227,255,0.55);
+    line-height:1;
+  }
+
+  .eyebrow-note{
+    font-family:var(--font-body);
+    font-style:italic;
+    color:var(--lavender-text);
+    opacity:.75;
+    font-size:15px;
+    margin-top:75px;
+  }
+ 
+  .glow-line{
+    position:absolute;
+    background:linear-gradient(180deg, transparent, var(--ice-blue) 50%, transparent);
+    width:1px;
+    opacity:.35;
+  }
+
+  #hero {
+  /* Set the background image directly on the section container */
+  background-image: url('./images/background.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  /* Force the section to take up the full screen height and width */
+  width: 100vw;
+  min-height: 100vh;
+
+  /* Center your text and button vertically and horizontally over the image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  text-align: center;
+  /* Removes any layout restriction cutting off your background */
+  width: 100%; 
+}
+
+  #hero::after{
+    content:'';
+    position:absolute; inset:0;
+    background:radial-gradient(60% 60% at 50% 45%, rgba(1,12,79,0.15) 0%, rgba(1,12,79,0.75) 100%);
+    z-index:1;
+  }
+  .decor-image{
+    position:absolute;
+    z-index:0;
+    opacity:.16;
+    pointer-events:none;
+  }
+
+  .hero-content{
+    position:relative;
+    z-index:2;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:26px;
+    padding:0 24px;
+  }
+
+  .hero-title{
+    font-size:clamp(52px, 9vw, 104px);
+    letter-spacing:.01em;
+  }
+
+  .hero-sub{
+    font-family:var(--font-body);
+    font-style:italic;
+    color:var(--lavender-text);
+    font-size:16px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+
+  .cta-button{
+    margin-top:10px;
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 34px;
+    border-radius:999px;
+    background:linear-gradient(120deg, rgba(211,224,255,0.9), rgba(189,227,255,0.55));
+    color:var(--bg-deep);
+    font-family:var(--font-body);
+    font-weight:700;
+    letter-spacing:.03em;
+    border:none;
+    cursor:pointer;
+    box-shadow:0 8px 30px rgba(189,227,255,0.35);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .cta-button:hover{ transform:translateY(-2px); box-shadow:0 12px 36px rgba(189,227,255,0.5); }
+
+  #about{ background:linear-gradient(180deg, #010C4F 0%, #0A0A3E 100%); }
+
+  .about-grid{
+    display:grid;
+    grid-template-columns:1.1fr 1.3fr 0.9fr;
+    gap:34px;
+    align-items:start;
+    margin-top:40px;
+  }
+  @media (max-width:900px){ .about-grid{ grid-template-columns:1fr; } }
+
+  .photo-card{
+    border-radius:22px;
+    overflow:hidden;
+    border:1px solid var(--ice-blue-dim);
+    box-shadow:0 20px 50px rgba(1,12,79,0.6);
+  }
+  .photo-card img{ width:100%; height:100%; object-fit:cover; aspect-ratio:4/5; }
+
+  .about-text p{
+    font-size:16.5px;
+    line-height:1.85;
+    color:var(--lavender-text);
+    margin-bottom:18px;
+    max-width:62ch;
+  }
+
+  .about-signoff{
+    margin-top:24px;
+    font-family:var(--font-display);
+    font-size:22px;
+    color:var(--ice-blue);
+    text-align:right;
+  }
+
+  .about-side{
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+  .about-side .photo-card img{ aspect-ratio:1/1; }
+
+  #education{
+    background:linear-gradient(180deg, #0A0A3E 0%, #0B0730 100%);
+  }
+
+  .edu-layout{
+    display:grid;
+    grid-template-columns:340px 1fr;
+    gap:0;
+    height:100%;
+    align-items:center;
+  }
+  @media (max-width:900px){ .edu-layout{ grid-template-columns:1fr; } }
+
+  .edu-intro{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    padding-right:30px;
+    max-height:calc(100vh - 200px);
+    overflow-y:auto;
+    scrollbar-width:none;
+  }
+  .edu-intro::-webkit-scrollbar{ display:none; }
+
+  .edu-portrait{
+    border-radius:18px;
+    overflow:hidden;
+    border:1px solid var(--ice-blue-dim);
+    flex:0 1 260px;
+  }
+  .edu-portrait img{ aspect-ratio:3/4; object-fit:cover; max-height:260px; width:100%; }
+
+  .edu-card{
+    background:linear-gradient(135deg, var(--purple), #38226B);
+    border-radius:16px;
+    padding:14px 20px;
+    box-shadow:0 10px 30px rgba(1,12,79,0.5);
+    flex:0 0 auto;
+  }
+  .edu-card h4{
+    font-family:var(--font-display);
+    font-size:19px;
+    font-weight:400;
+    margin-bottom:4px;
+  }
+  .edu-card p{ font-size:13.5px; color:var(--lavender-text); line-height:1.45; }
+  .edu-card a{ font-size:12.5px; color:var(--ice-blue); text-decoration:underline; }
+
+  .h-scroll{
+    overflow-x:auto;
+    overflow-y:hidden;
+    scrollbar-width:thin;
+    cursor:grab;
+  }
+  .h-scroll:active{ cursor:grabbing; }
+
+  .h-scroll-wrap{ position:relative; }
+
+  .scroll-next-btn{
+    position:absolute;
+    bottom:14px; right:14px;
+    z-index:5;
+    width:46px; height:46px;
+    border-radius:50%;
+    border:1px solid var(--ice-blue-dim);
+    background:rgba(1,12,79,0.6);
+    backdrop-filter:blur(4px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    box-shadow:0 8px 24px rgba(1,12,79,0.5);
+    transition:transform .2s ease, box-shadow .2s ease;
+  }
+  .scroll-next-btn:hover{ transform:translateY(-2px); box-shadow:0 0 18px 3px rgba(189,227,255,0.5); }
+  .scroll-next-btn img{ width:20px; height:20px; object-fit:contain; }
+
+  .timeline-track{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:48px;
+    padding:50px 60px;
+    min-width:max-content;
+  }
+
+  .timeline-track::before{
+    content:'';
+    position:absolute;
+    left:0; right:0; top:50%;
+    height:1px;
+    background:linear-gradient(90deg, transparent, var(--ice-blue-dim) 8%, var(--ice-blue-dim) 92%, transparent);
+    z-index:0;
+  }
+
+  .badge{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    width:150px;
+    flex:0 0 auto;
+  }
+  .badge:nth-child(even){ transform:translateY(-42px); }
+  .badge:nth-child(odd){ transform:translateY(42px); }
+
+  .badge img{
+    width:52px; height:52px;
+    object-fit:contain;
+    filter:drop-shadow(0 0 10px rgba(189,227,255,0.5));
+    margin-bottom:10px;
+  }
+  .badge .badge-title{
+    font-family:Rosarivo;
+    font-size:16px;
+    line-height:1.2;
+  }
+  .badge .badge-year{ font-size:12px; color:var(--lavender-text); margin-top:4px; letter-spacing:.04em; }
+
+  .timeline-photos{
+    display:flex;
+    gap:18px;
+    flex:0 0 auto;
+    align-items:center;
+  }
+  .timeline-photos .photo-card{ width:150px; height:190px; flex:0 0 auto; }
+  .timeline-photos .photo-card img{ height:100%; aspect-ratio:auto; }
+
+  #experience{ background:linear-gradient(180deg, #0B0730 0%, #100A3E 100%); }
+
+/* 1. Allows the main section to expand cleanly or scroll vertically if images stack */
+.experience-section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--bg-mid);
+}
+
+/* 2. Main Collage Canvas Layer */
+.exp-collage-wall {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.40; /* Soft blend into background */
+  pointer-events: none;
+}
+
+.collage-item {
+  position: absolute;
+}
+
+/* 3. Keep images strictly true-to-size and uncropped */
+.collage-item img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; /* Guarantees original proportions are preserved */
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* 4. REPOSITIONED INDIVIDUAL PLACEMENTS (With size limits) */
+
+/* Left item */
+.item-hackutd {
+  top: 8%;
+  left: 3%;
+  width: 22vw;
+  max-width: 300px; /* Prevents it from getting too massive */
+}
+
+/* Center-left tall item */
+.item-podcast {
+  top: 2%;
+  left: 24%;
+  width: 26vw;
+  max-width: 320px;
+}
+
+/* Center background item */
+.item-president {
+  top: 15%;
+  left: 48%;
+  width: 20vw;
+  max-width: 260px;
+}
+
+/* Top right item */
+.item-camp {
+  top: 5%;
+  left: 68%;
+  width: 28vw;
+  max-width: 360px;
+}
+
+/* Bottom right item */
+.item-verizon {
+  bottom: 8%;
+  right: 4%;
+  width: 24vw;
+  max-width: 300px;
+}
+
+/* 5. FRONT FORWARD TEXT CONTAINER */
+.xp-h-scroll {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  gap: 40px;
+  padding: 0 80px;
+  align-items: center; 
+  box-sizing: border-box;
+}
+.text-h-scroll {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  gap: 40px; /* optional spacing between boxes */
+  align-items: center; /* ✅ centers cards vertically */
+}
+/* Content cards floating over collage layer */
+.exp-card {
+  flex-shrink: 0;
+  width: 320px;
+  padding: 24px;
+  background: rgba(10, 5, 43, 0.85); /* Slightly darker backing for clarity */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid var(--ice-blue-dim);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+
+  #gallery{
+    background:
+      radial-gradient(1px 1px at 20px 30px, rgba(255,255,255,.5) 50%, transparent 51%) repeat,
+      radial-gradient(1px 1px at 120px 80px, rgba(255,255,255,.4) 50%, transparent 51%) repeat,
+      radial-gradient(1px 1px at 200px 140px, rgba(255,255,255,.35) 50%, transparent 51%) repeat,
+      linear-gradient(180deg, #100A3E 0%, #05041F 100%);
+    background-size:240px 240px, 260px 260px, 300px 300px, 100% 100%;
+  }
+
+  .gallery-strip{
+    margin-top:36px;
+    display:flex;
+    gap: 40px;
+    padding:20px 0 30px;
+  }
+  .gallery-strip img{
+    height:62vh;
+    min-height:340px;
+    width:auto;
+    border-radius:14px;
+    border:1px solid var(--ice-blue-dim);
+    box-shadow:0 20px 50px rgba(0,0,0,0.55);
+    flex:0 0 auto;
+  }
+
+  #contact{
+    background:linear-gradient(115deg, var(--contact-purple) 0%, var(--contact-dark) 38%, var(--contact-dark) 55%, var(--contact-blue) 100%);
+    display:flex;
+    align-items:center;
+  }
+
+  .contact-inner{
+    max-width:1100px;
+    margin:0 auto;
+    width:100%;
+    padding:0 60px;
+  }
+  @media (max-width:640px){ .contact-inner{ padding:0 24px; } }
+
+  .contact-title{
+    font-size:clamp(42px, 6vw, 68px);
+    text-align:center;
+    margin-bottom:60px;
+  }
+
+  .contact-blocks{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+  }
+  @media (max-width:700px){ .contact-blocks{ grid-template-columns:1fr; } }
+
+  .contact-block h3{
+    font-family:var(--font-display);
+    font-size:26px;
+    font-weight:400;
+    margin-bottom:12px;
+  }
+  .contact-block a{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-size:15px;
+    color:var(--lavender-text);
+    border-bottom:1px solid transparent;
+    transition:border-color .2s ease, color .2s ease;
+  }
+  .contact-block a:hover{ color:var(--white); border-color:var(--ice-blue); }
+
+  footer{
+    text-align:center;
+    font-size:12px;
+    color:var(--lavender-text);
+    opacity:.6;
+    padding:26px 0 10px;
+  }
+</style>
+</head>
+<body>
+
+
+  <button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false">
+    <img src="./images/hamburger_button.png" alt="">
+  </button>
+
+  <nav class="side-nav" id="sideNav" aria-label="Section navigation">
+    <div class="nav-line"></div>
+    <a class="nav-dot active" href="#hero" data-target="hero"><span class="tooltip">Hero</span></a>
+    <a class="nav-dot" href="#about" data-target="about"><span class="tooltip">About Me</span></a>
+    <a class="nav-dot" href="#education" data-target="education"><span class="tooltip">Education</span></a>
+    <a class="nav-dot" href="#experience" data-target="experience"><span class="tooltip">Experience</span></a>
+    <a class="nav-dot" href="#gallery" data-target="gallery"><span class="tooltip">Gallery</span></a>
+    <a class="nav-dot" href="#contact" data-target="contact"><span class="tooltip">Contact</span></a>
+  </nav>
+
+  <section id="hero">
+    <div class="hero-content">
+        <h1 class="script-heading hero-title">My Portfolio</h1>
+        <a href="#about" class="cta-button">About Me</a>
+    </div>
+</section>
+
+
+  <section id="about">
+    <img class="decor-image" src="./images/background.png" alt="" aria-hidden="true"
+         style="width:min(640px,80vw); right:-80px; bottom:-40px;">
+    <div class="section-inner">
+      <h2 class="script-heading" style="font-size:clamp(40px,6vw,64px);">About me</h2>
+
+      <div class="about-grid">
+        <div class="photo-card">
+          <img src="./images/mom.jpeg" alt="A personal photo">
+        </div>
+
+        <div class="about-text">
+          <p>
+            My name is Andrea Sofia Alvidres Monserrat, I am currently a student of Media Arts 
+            & Design (concentration in Marketing) at the University of Texas at Dallas and 
+            freelance designer at multiple organizations on campus. 
+          </p>
+          <p>
+            Andrea Alvidres at school, Andie to my friends and Sofi to my family. As you can see, 
+            throughout my life I’ve been endowed with many names; be that from mentors, friends, 
+            or family, I have always been surrounded by people who wish to see me succeed. And 
+            that is something I hold onto dearly in everything I do. 
+          </p>
+          <p class="about-signoff">— The things that make me different are the things that make me, 
+            <p class= "hero-sub"> me.</p>
+        </div>
+
+        <div class="about-side">
+          <div class="photo-card"><img src="./images/dinner.jpeg" alt="A personal photo"></div>
+          <div class="photo-card"><img src="./images/laughing.jpeg" alt="A personal photo"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+      <div class="edu-layout">
+        <div class="edu-intro">
+          <div class="edu-portrait">
+            <img src="./images/cover_full_education.png" alt="Education photo">
+          </div>
+
+          <div class="edu-card">
+            <h4>High School</h4>
+            <p>Radford School &middot; El Paso, TX</p>
+            <a href="https://radfordschool.org" target="_blank" rel="noopener noreferrer">radfordschool.org</a>
+          </div>
+
+          <div class="edu-card">
+            <h4>College</h4>
+            <p>University of Texas at Dallas &middot; B.A. in Media Arts & Design &amp; Marketing minor</p>
+            <a href="https://utdallas.edu" target="_blank" rel="noopener noreferrer">utdallas.edu</a>
+          </div>
+        </div>
+
+        <div class="h-scroll-wrap">
+        <div class="h-scroll" id="eduScroll">
+          <div class="timeline-track">
+            <div class="badge">
+              <img src="./images/achievements_button.png" alt="">
+              <span class="badge-title">Young Writers<br>Published Poetry</span>
+              <span class="badge-year">2022</span>
+            </div>
+            <div class="badge">
+              <img src="./images/achievements_button.png" alt="">
+              <span class="badge-title">Young Writers<br>Published Short Story</span>
+              <span class="badge-year">2023</span>
+            </div>
+            <div class="badge">
+              <img src="./images/achievements_button.png" alt="">
+              <span class="badge-title">AP Scholar Award</span>
+              <span class="badge-year">2023</span>
+            </div>
+            <div class="badge">
+              <img src="./images/achievements_button.png" alt="">
+              <span class="badge-title">College Board National Hispanic Recognition Award</span>
+              <span class="badge-year">2023</span>
+            </div>
+            <div class="badge">
+              <img src="./images/achievements_button.png" alt="">
+              <span class="badge-title">TXSEF<br>State Science Fair</span>
+              <span class="badge-year">2024</span>
+            </div>
+            <div class="badge">
+              <img src="./images/achievements_button.png" alt="">
+              <span class="badge-title">Sun City Science Fair</span>
+              <span class="badge-year">Regional Science Fair</span>
+            </div>
+            <div class="badge">
+              <img src="./images/achievements_button.png" alt="">
+              <span class="badge-title">Radford School<br>Honor Roll</span>
+              <span class="badge-year">2023 &ndash; 2025</span>
+            </div>
+            <div class="badge">
+              <img src="./images/achievements_button.png" alt="">
+              <span class="badge-title">Radford School<br>Scholarship Recipient</span>
+              <span class="badge-year">2024 &ndash; 2025</span>
+            </div>
+            <div class="badge">
+              <img src="./images/achievements_button.png" alt="">
+              <span class="badge-title">HackUTD Team Member Highlight of the Month</span>
+              <span class="badge-year">2025</span>
+            </div>
+
+            <div class="timeline-photos">
+              <div class="photo-card"><img src="./images/honor_roll.jpeg" alt="Honor roll ceremony"></div>
+              <div class="photo-card"><img src="./images/TXSEF.jpeg" alt="TXSEF science fair"></div>
+            </div>
+          </div>
+        </div>
+        <button class="scroll-next-btn" data-scroll-target="eduScroll" aria-label="Scroll timeline forward">
+          <img src="./images/next_button.png" alt="">
+        </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <section class="experience-section">
+  
+  <!-- THE COLLAGE BACKGROUND LAYER: Each asset gets a unique positional class -->
+  <div class="exp-collage-wall">
+    <div class="collage-item item-hackutd">
+      <img src="/images/HackUTD.png" alt="HackUTD Background">
+    </div>
+    <div class="collage-item item-podcast">
+      <img src="/images/podcast.jpeg" alt="Podcast Background">
+    </div>
+    <div class="collage-item item-president">
+      <img src="/images/president.jpeg" alt="President Background">
+    </div>
+    <div class="collage-item item-camp">
+      <img src="/images/summer_camp.jpeg" alt="Summer Camp Background">
+    </div>
+    <div class="collage-item item-verizon">
+      <img src="/images/verizon.jpeg" alt="Verizon Background">
+    </div>
+  </div>
+<div class="hero-title">
+  <h2>Experience</h2>
 </div>
-<div style="width: 1440px; height: 1024px; position: relative; background: #010C4F; overflow: hidden">
-  <div style="width: 272px; height: 197px; left: 679px; top: 222px; position: absolute; color: #F1FAFF; font-size: 150px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">me</div>
-  <div style="width: 693px; height: 421px; left: 48px; top: -32px; position: absolute; color: #F1FAFF; font-size: 170px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">About</div>
-  <img style="width: 263.34px; height: 2112.52px; left: -404.47px; top: 131.34px; position: absolute; transform: rotate(-90deg); transform-origin: top left; box-shadow: 75px 75px 75px; filter: blur(37.50px)" src="https://placehold.co/263x2113" />
-  <div style="width: 389px; height: 543px; left: 573px; top: 419px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">My name is Andrea Sofia Alvidres Monserrat, I am currently a student of Media Arts & Design (concentration in Marketing) at the University of Texas at Dallas and freelance designer at multiple organizations on campus. <br/><br/>Andrea Alvidres at school, Andie to my friends and Sofi to my family. As you can see, throughout my life I’ve been endowed with many names; be that from mentors, friends, or family, I have always been surrounded by people who wish to see me succeed. And that is something I hold onto dearly in everything I do. </div>
-  <img style="width: 481px; height: 569px; left: 48px; top: 393px; position: absolute; border-radius: 50px" src="https://placehold.co/481x569" />
-  <img style="width: 412px; height: 309px; left: 1002px; top: 665px; position: absolute; border-radius: 50px" src="https://placehold.co/412x309" />
-  <img style="width: 407px; height: 354px; left: 1002px; top: 158px; position: absolute; border-radius: 50px" src="https://placehold.co/407x354" />
-  <div style="width: 336.20px; height: 113.75px; left: 1027px; top: 523px; position: absolute; color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">The things that make me different are the things that make me,</div>
-  <div style="width: 183.91px; height: 16.25px; left: 1205.09px; top: 636.75px; position: absolute"><span style="color: #F1FAFF; font-size: 10px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">~ Piglet, </span><span style="color: #F1FAFF; font-size: 10px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">Winnie the Pooh (1999)</span></div>
-  <div style="width: 113.18px; height: 85.31px; left: 1275.82px; top: 542.50px; position: absolute; color: #F1FAFF; font-size: 30px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">Me</div>
-  <img style="width: 94px; height: 98px; left: 1267px; top: 925px; position: absolute" src="https://placehold.co/94x98" />
-  <img style="width: 120px; height: 120px; left: 18px; top: 11px; position: absolute" src="https://placehold.co/120x120" />
-</div>
-<div style="width: 1440px; height: 1024px; position: relative; background: #010C4F; overflow: hidden">
-  <img style="width: 943px; height: 666px; left: -92px; top: 358px; position: absolute; border-radius: 50px" src="https://placehold.co/943x666" />
-  <div style="width: 790px; height: 421px; left: 61px; top: 54px; position: absolute; color: #F1FAFF; font-size: 165px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">Education</div>
-  <img style="width: 554px; height: 662px; left: -5px; top: 357px; position: absolute" src="https://placehold.co/554x662" />
-  <div style="width: 523px; height: 234px; left: 879px; top: 143px; position: absolute; background: #612DA3; border-radius: 50px"></div>
-  <div style="width: 99px; height: 116.08px; left: 896px; top: 54px; position: absolute; color: #F1FAFF; font-size: 40px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">H</div>
-  <div style="width: 45px; height: 35.99px; left: 995px; top: 134.10px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">IGH</div>
-  <div style="width: 99px; height: 116.08px; left: 1051px; top: 54px; position: absolute; color: #F1FAFF; font-size: 40px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</div>
-  <div style="width: 86px; height: 35.99px; left: 1135px; top: 134.10px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">CHOOL</div>
-  <div style="width: 523px; height: 342px; left: 879px; top: 542px; position: absolute; background: #612DA3; border-radius: 50px"></div>
-  <div style="width: 99px; height: 116.08px; left: 896px; top: 452.17px; position: absolute; color: #F1FAFF; font-size: 40px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">C</div>
-  <div style="width: 92px; height: 35.99px; left: 980px; top: 532.27px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">OLLEGE</div>
-  <div style="width: 433px; height: 60.36px; left: 933px; top: 619.33px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 30px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">University of Texas at Dallas</div>
-  <div style="width: 469px; height: 60.36px; left: 933px; top: 687.82px; position: absolute; text-align: justify"><span style="color: #F1FAFF; font-size: 25px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">BASS School - </span><span style="color: #F1FAFF; font-size: 25px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">Media Arts & Design</span></div>
-  <div style="width: 129px; height: 60.36px; left: 1168px; top: 729.61px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 25px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">Marketing</div>
-  <div style="width: 433px; height: 60px; left: 933px; top: 205px; position: absolute; text-align: justify"><span style="color: #F1FAFF; font-size: 30px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">Radford School - </span><span style="color: #F1FAFF; font-size: 30px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">El Paso, TX</span></div>
-  <div style="width: 250px; height: 60px; left: 1025px; top: 268px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 30px; font-family: Rosarivo; font-style: italic; font-weight: 400; text-decoration: underline; word-wrap: break-word">radfordschool.org</div>
-  <div style="width: 154px; height: 49px; left: 1055px; top: 789px; position: absolute; text-align: justify; color: white; font-size: 30px; font-family: Rosarivo; font-style: italic; font-weight: 400; text-decoration: underline; word-wrap: break-word">utdallas.edu</div>
-  <img style="width: 130px; height: 116px; left: 1076px; top: 402px; position: absolute" src="https://placehold.co/130x116" />
-  <img style="width: 94px; height: 98px; left: 1280px; top: 921px; position: absolute" src="https://placehold.co/94x98" />
-  <img style="width: 120px; height: 120px; left: 15px; top: 0px; position: absolute" src="https://placehold.co/120x120" />
-</div>
-<div style="width: 1440px; height: 1024px; position: relative; background: #010C4F; overflow: hidden">
-  <img style="width: 391px; height: 512px; left: 1089px; top: 529px; position: absolute; border-radius: 50px" src="https://placehold.co/391x512" />
-  <img style="width: 94px; height: 98px; left: 1245px; top: 904px; position: absolute" src="https://placehold.co/94x98" />
-  <img style="width: 355.61px; height: 500.76px; left: 2px; top: 529.10px; position: absolute; border-radius: 50px" src="https://placehold.co/356x501" />
-  <img style="width: 656px; height: 504px; left: 407px; top: 530px; position: absolute; border-radius: 50px" src="https://placehold.co/656x504" />
-  <img style="width: 626px; height: 433px; left: 596px; top: 54px; position: absolute; border-radius: 50px" src="https://placehold.co/626x433" />
-  <img style="width: 282px; height: 446px; left: 1244px; top: 46px; position: absolute; border-radius: 50px" src="https://placehold.co/282x446" />
-  <img style="width: 575px; height: 415px; left: 2px; top: 54px; position: absolute; background: linear-gradient(0deg, rgba(34.08, 28.40, 0, 0.07) 0%, rgba(34.08, 28.40, 0, 0.07) 100%)" src="https://placehold.co/575x415" />
-  <div style="width: 289px; height: 144.68px; left: 73px; top: 290px; position: absolute; background: #612DA3; border-radius: 50px"></div>
-  <div style="width: 289px; height: 144.68px; left: 73px; top: 466.96px; position: absolute; background: #612DA3; border-radius: 50px"></div>
-  <div style="width: 289px; height: 144.68px; left: 73px; top: 643.92px; position: absolute; background: #612DA3; border-radius: 50px"></div>
-  <div style="width: 289px; height: 144.68px; left: 73px; top: 821.32px; position: absolute; background: #612DA3; border-radius: 50px"></div>
-  <div style="width: 827px; height: 376px; left: 303px; top: 76px; position: absolute; color: #F1FAFF; font-size: 165px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word; text-shadow: 0px 9px 7px rgba(0, 0, 0, 0.75)">Experience</div>
-  <div style="width: 251px; height: 66px; left: 92px; top: 856px; position: absolute"><span style="color: #F1FAFF; font-size: 20px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">H</span><span style="color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">ackUTD ~ 2025 - 2026</span></div>
-  <div style="width: 216px; height: 20px; left: 110px; top: 912px; position: absolute; color: #F1FAFF; font-size: 14px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">Designer/Social Media Management</div>
-  <div style="width: 260px; height: 98px; left: 92px; top: 661px; position: absolute"><span style="color: #F1FAFF; font-size: 20px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">R</span><span style="color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">adford </span><span style="color: #F1FAFF; font-size: 20px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</span><span style="color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">chool ~ 2023</span></div>
-  <div style="width: 157px; height: 39px; left: 139px; top: 720px; position: absolute; text-align: center; color: #F1FAFF; font-size: 14px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">Summer Math Tutor (Middle and High School)</div>
-  <div style="width: 260px; height: 98px; left: 89px; top: 498px; position: absolute"><span style="color: #F1FAFF; font-size: 20px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">R</span><span style="color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">adford </span><span style="color: #F1FAFF; font-size: 20px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</span><span style="color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">chool ~ 2023</span></div>
-  <div style="width: 157px; height: 19px; left: 140px; top: 560px; position: absolute; text-align: center; color: #F1FAFF; font-size: 14px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">Summer Camp Counselor</div>
-  <div style="width: 260px; height: 98px; left: 92px; top: 313px; position: absolute"><span style="color: #F1FAFF; font-size: 20px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">R</span><span style="color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">adford </span><span style="color: #F1FAFF; font-size: 20px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</span><span style="color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">chool ~ 2022</span></div>
-  <div style="width: 157px; height: 19px; left: 143px; top: 375px; position: absolute; text-align: center; color: #F1FAFF; font-size: 14px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">Summer Camp Counselor</div>
-  <div style="width: 308px; height: 132px; left: 412px; top: 536px; position: absolute; opacity: 0.40; background: linear-gradient(180deg, #612DA3 1%, #3E5FFF 100%); border-radius: 50px"></div>
-  <div style="width: 261px; height: 517px; left: 782px; top: 495px; position: absolute; opacity: 0.40; background: #3E5FFF; border-radius: 50px"></div>
-  <div style="width: 308px; height: 278px; left: 420px; top: 734px; position: absolute; opacity: 0.40; background: #3E5FFF; border-radius: 50px"></div>
-  <div style="width: 293px; height: 335px; left: 1130px; top: 559px; position: absolute; opacity: 0.40; background: #3E5FFF; border-radius: 50px"></div>
-  <div style="width: 293px; height: 248px; left: 1130px; top: 297px; position: absolute; opacity: 0.40; background: #3E5FFF; border-radius: 50px"></div>
-  <div style="width: 266px; height: 87px; left: 440px; top: 562px; position: absolute; color: white; font-size: 25px; font-family: Billa Mount; font-weight: 400; line-height: 40px; word-wrap: break-word">Some of my favorite projects and what I have learned:</div>
-  <div style="width: 280px; left: 430px; top: 748px; position: absolute; text-align: center; color: white; font-size: 14px; font-family: Rosarivo; font-weight: 400; line-height: 22px; word-wrap: break-word">Summer Camp Counseling:<br/>I worked with kids from ages 2-12. I learned to collaborate with other counselors at 15 while also following orders from the supervising teachers that taught me a lot of empathy and admiration towards them while also learning to collaborate, negotiate, and storytell as a way to get children to understand the activities, and a LOT of conflict resolution. </div>
-  <div style="width: 236px; left: 795px; top: 506px; position: absolute; text-align: center; color: white; font-size: 14px; font-family: Rosarivo; font-weight: 400; line-height: 22px; word-wrap: break-word">Marketing Final Project:<br/>During one my second year fall semester, I was put in a group project where we were tasked with hypothetically creating or improving a product or service and plan its marketing strategy from scratch. We created a brand of fully customizable bras and I took on the roll of project manager. Here I learned how to organize multiple student’s schedules, and trusting my teammates, as it was a project I could not have done all on y own in the span of four months. I also learned how to use excel as I was tasked with the financial end of our strategy for our pitch. I made a preliminary hypothetical production and advertisement budget and ROI for our product for the first four quarters.</div>
-  <div style="width: 265px; left: 1141px; top: 577px; position: absolute; text-align: center; color: white; font-size: 14px; font-family: Rosarivo; font-weight: 400; line-height: 22px; word-wrap: break-word">HackUTD Axxess Hackathon Preparation:<br/>A week after I was onboarded to the HackUTD team, the axxess hackathon had to be prepared for, and with little to no experience I learned two things. Hope for the best, plan for the worst. Despite being praised by my coworkers for the preparation, the execution of it taught me to be flexible, to have multiple back-up plans, the ability to compromise, knowing the strengths of my teammates and planning with them as a priority. </div>
-  <div style="width: 265px; left: 1142px; top: 307px; position: absolute; text-align: center; color: white; font-size: 12px; font-family: Rosarivo; font-weight: 400; line-height: 16px; word-wrap: break-word">Honorable Mentions<br/>~ Designed my Senior Year High School Posters and Tickets. <br/>~ Designed the background assets for the first three sections of https://zeroday.hackutd.co/ and the train station asset. (not the character on the train).<br/>~Designed the backdrop rooms and doors for my high school production of Clue.<br/>~ Acted as the Director in my Project Management for MAD in a short film trailer called “Not Like Other Girls”<br/>~ Co-hosted a single episode podcast for my Intorduction to Techoculture course.</div>
-  <img style="width: 120px; height: 120px; left: 23px; top: 16px; position: absolute" src="https://placehold.co/120x120" />
-</div>
-<div style="width: 1440px; height: 1024px; position: relative; background: #010C4F; overflow: hidden">
-  <div style="width: 1440px; height: 1024px; left: 0px; top: 0px; position: absolute; background: linear-gradient(90deg, rgba(211, 224, 255, 0.20) 0%, rgba(1, 12, 79, 0.20) 47%); border: 1px black solid"></div>
-  <img style="width: 326px; height: 456px; left: 1073px; top: 512px; position: absolute" src="https://placehold.co/326x456" />
-  <img style="width: 94px; height: 98px; left: 1277px; top: 28px; position: absolute" src="https://placehold.co/94x98" />
-  <img style="width: 326px; height: 322px; left: 1073px; top: 161px; position: absolute" src="https://placehold.co/326x322" />
-  <img style="width: 262px; height: 391px; left: 772px; top: 577px; position: absolute" src="https://placehold.co/262x391" />
-  <img style="width: 274px; height: 391px; left: 468px; top: 574px; position: absolute" src="https://placehold.co/274x391" />
-  <img style="width: 441px; height: 391px; left: 0px; top: 571px; position: absolute" src="https://placehold.co/441x391" />
-  <img style="width: 1211px; height: 744px; left: 155px; top: 77px; position: absolute" src="https://placehold.co/1211x744" />
-  <div style="width: 790px; height: 421px; left: 47px; top: -50px; position: absolute; color: #F1FAFF; font-size: 165px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word; text-shadow: 0px 10px 5px rgba(0, 0, 0, 0.50)">Gallery</div>
-  <div style="left: 42px; top: 512px; position: absolute; color: white; font-size: 25px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">A collection of some of my work...</div>
-  <img style="width: 120px; height: 120px; left: 18px; top: 6px; position: absolute" src="https://placehold.co/120x120" />
-</div>
-<div style="width: 1440px; height: 1024px; position: relative; background: conic-gradient(from 180deg at 50.00% 50.00%, #010C4F 0deg, #612DA3 113deg, #3E5FFF 241deg, #F1FAFF 360deg), #010C4F; overflow: hidden">
-  <img style="width: 47px; height: 47px; left: 272px; top: 691px; position: absolute" src="https://placehold.co/47x47" />
-  <div style="left: 277px; top: 616px; position: absolute"><span style="color: white; font-size: 25px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">P</span><span style="color: white; font-size: 25px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">ersonal/</span><span style="color: white; font-size: 25px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">B</span><span style="color: white; font-size: 25px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">usiness:</span></div>
-  <div style="left: 322px; top: 700px; position: absolute; color: white; font-size: 20px; font-family: Rosarivo; font-weight: 400; text-decoration: underline; word-wrap: break-word">andrea.s.alvidres@gmail.com</div>
-  <div style="left: 842px; top: 614px; position: absolute"><span style="color: #060E53; font-size: 25px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</span><span style="color: #060E53; font-size: 25px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">chool:</span></div>
-  <img style="width: 54px; height: 48px; left: 834px; top: 685px; position: absolute" src="https://placehold.co/54x48" />
-  <div style="left: 888px; top: 698px; position: absolute; color: #040D51; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">Andrea.Alvidres@utdallas.edu</div>
-  <div style="width: 848px; height: 421px; left: 296px; top: 74px; position: absolute; color: #F1FAFF; font-size: 120px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">Let’s stay in touch</div>
-  <img style="width: 120px; height: 120px; left: 12px; top: 0px; position: absolute" src="https://placehold.co/120x120" />
-</div>
-<div style="width: 1440px; height: 1024px; position: relative; background: #010C4F; overflow: hidden">
-  <img style="width: 94px; height: 98px; left: 1259px; top: 902px; position: absolute" src="https://placehold.co/94x98" />
-  <div style="width: 1464px; height: 152px; left: 0px; top: 446px; position: absolute; opacity: 0.25; background: linear-gradient(90deg, #D3E0FF 0%, #612DA3 48%)"></div>
-  <img style="width: 82px; height: 115px; left: 747px; top: 556px; position: absolute" src="https://placehold.co/82x115" />
-  <div style="width: 259px; height: 66px; left: 658px; top: 775px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 16px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">for exemplary college-level achievement, for scoring 3 or higher on three or more AP Exams.</div>
-  <div style="width: 259px; height: 94px; left: 658px; top: 676px; position: absolute; text-align: center"><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">AP </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">cholar </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">A</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">ward - 2024</span></div>
-  <img style="width: 82px; height: 115px; left: 747px; top: 93px; position: absolute" src="https://placehold.co/82x115" />
-  <div style="width: 259px; height: 22px; left: 658px; top: 356px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 16px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">for outstanding academic achievement</div>
-  <div style="width: 289px; height: 136px; left: 643px; top: 212px; position: absolute; text-align: center"><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">C</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">ollege </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">B</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">oard National Hispanic Recognition Award - 2023</span></div>
-  <img style="width: 82px; height: 115px; left: 1211px; top: 177px; position: absolute" src="https://placehold.co/82x115" />
-  <div style="width: 234px; height: 21px; left: 1135px; top: 430px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 16px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">2nd Place, Physics and Astronomy</div>
-  <div style="width: 259px; height: 114px; left: 1122px; top: 292px; position: absolute; text-align: center"><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">un </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">C</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">ountry Regional Science Fair<br/>- 2024</span></div>
-  <img style="width: 82px; height: 115px; left: 1211px; top: 630px; position: absolute" src="https://placehold.co/82x115" />
-  <div style="width: 249px; height: 22px; left: 1127px; top: 856px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 16px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">Texas A&M, Physics and Astronomy.</div>
-  <div style="width: 275px; height: 94px; left: 1114px; top: 750px; position: absolute; text-align: center"><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">TXSEF </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">tate </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">F</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">inalist<br/>- 2024</span></div>
-  <img style="width: 82px; height: 115px; left: 307px; top: 227px; position: absolute" src="https://placehold.co/82x115" />
-  <div style="width: 189px; height: 22px; left: 253px; top: 490px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 16px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">“Empowered” (2022), Poetry. <br/></div>
-  <div style="width: 210px; height: 133px; left: 243px; top: 349px; position: absolute; text-align: center"><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">Y</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">oung </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">W</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">riters Published Work<br/>- 2022</span></div>
-  <div style="width: 198px; height: 22px; left: 249px; top: 914px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 16px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">“Hunted” (2022), Short Story. <br/></div>
-  <div style="width: 210px; height: 126px; left: 243px; top: 773px; position: absolute; text-align: center"><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">Y</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">oung </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">W</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">riters Published Work<br/>- 2023</span></div>
-  <img style="width: 82px; height: 115px; left: 313px; top: 658px; position: absolute" src="https://placehold.co/82x115" />
-  <img style="width: 78px; height: 69px; left: 358px; top: 544px; position: absolute" src="https://placehold.co/78x69" />
-  <img style="width: 192.75px; height: 171.14px; left: 852.89px; top: 556.17px; position: absolute; transform: rotate(-91deg); transform-origin: top left" src="https://placehold.co/193x171" />
-  <img style="width: 139.08px; height: 123.49px; left: 1005.52px; top: 537.10px; position: absolute; transform: rotate(178deg); transform-origin: top left" src="https://placehold.co/139x123" />
-</div>
-<div style="width: 1440px; height: 1024px; position: relative; background: linear-gradient(90deg, rgba(1, 12, 79, 0.50) 58%, rgba(211, 224, 255, 0.50) 100%), #010C4F; overflow: hidden">
-  <img style="width: 82px; height: 115px; left: 188px; top: 680px; position: absolute" src="https://placehold.co/82x115" />
-  <div style="width: 259px; height: 94px; left: 99px; top: 800px; position: absolute; text-align: center"><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">R</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">adford </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">chool Scholarship Recipient<br/>- 2023 ~ 2024</span></div>
-  <img style="width: 82px; height: 115px; left: 177px; top: 249px; position: absolute" src="https://placehold.co/82x115" />
-  <div style="width: 228px; height: 136px; left: 101px; top: 376px; position: absolute; text-align: center"><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">R</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">adford </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">S</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">chool Honor Roll <br/>- 2022  ~ 2023</span></div>
-  <img style="width: 82px; height: 115px; left: 614px; top: 153px; position: absolute" src="https://placehold.co/82x115" />
-  <div style="width: 269px; height: 22px; left: 520px; top: 409px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 16px; font-family: Rosarivo; font-style: italic; font-weight: 400; word-wrap: break-word">Social Media Management - Marketing</div>
-  <div style="width: 331px; height: 94px; left: 489px; top: 273px; position: absolute; text-align: center"><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">HackUTD </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">T</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">eam </span><span style="color: #F1FAFF; font-size: 22px; font-family: Billa Mount; font-weight: 400; word-wrap: break-word">M</span><span style="color: #F1FAFF; font-size: 22px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">ember Highlight of the Month <br/>- 2025</span></div>
-  <div style="width: 825.52px; height: 157px; left: 789.40px; top: 570.05px; position: absolute; transform: rotate(173deg); transform-origin: top left; opacity: 0.25; background: linear-gradient(90deg, #D3E0FF 0%, #612DA3 48%)"></div>
-  <img style="width: 175px; height: 156px; left: 352px; top: 674px; position: absolute; transform: rotate(180deg); transform-origin: top left" src="https://placehold.co/175x156" />
-  <img style="width: 64px; height: 57px; left: 504px; top: 444px; position: absolute" src="https://placehold.co/64x57" />
-  <img style="width: 450px; height: 338px; left: 437px; top: 582px; position: absolute; border-radius: 50px" src="https://placehold.co/450x338" />
-  <img style="width: 416px; height: 630px; left: 960px; top: 290px; position: absolute; border-radius: 50px" src="https://placehold.co/416x630" />
-  <img style="width: 94px; height: 98px; left: 1215px; top: 55px; position: absolute" src="https://placehold.co/94x98" />
-  <div style="width: 246px; height: 28px; left: 1042px; top: 253px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">TXSEF Presentation Day!</div>
-  <div style="width: 296px; height: 28px; left: 520px; top: 540px; position: absolute; text-align: justify; color: #F1FAFF; font-size: 20px; font-family: Rosarivo; font-weight: 400; word-wrap: break-word">Honor Roll Awards Ceremony</div>
-</div>
-<div style="width: 1440px; height: 1024px; position: relative; background: #010C4F; overflow: hidden">
-  <div style="width: 1440px; height: 1024px; left: 0px; top: 2px; position: absolute; background: linear-gradient(90deg, rgba(211, 224, 255, 0.20) 0%, rgba(1, 12, 79, 0.20) 47%); border: 1px black solid"></div>
-  <img style="width: 372px; height: 273px; left: 1028px; top: 697px; position: absolute" src="https://placehold.co/372x273" />
-  <img style="width: 94px; height: 98px; left: 1243px; top: 43px; position: absolute" src="https://placehold.co/94x98" />
-  <img style="width: 545px; height: 353px; left: 280px; top: 44px; position: absolute" src="https://placehold.co/545x353" />
-  <img style="width: 220px; height: 353px; left: 46px; top: 43px; position: absolute" src="https://placehold.co/220x353" />
-  <img style="width: 249px; height: 249px; left: 572px; top: 425px; position: absolute" src="https://placehold.co/249x249" />
-  <img style="width: 507px; height: 250px; left: 48px; top: 425px; position: absolute" src="https://placehold.co/507x250" />
-  <img style="width: 944px; height: 268px; left: 49px; top: 698px; position: absolute" src="https://placehold.co/944x268" />
-  <img style="width: 218px; height: 354px; left: 851px; top: 43px; position: absolute" src="https://placehold.co/218x354" />
-  <img style="width: 242px; height: 250px; left: 838px; top: 425px; position: absolute" src="https://placehold.co/242x250" />
-  <img style="width: 295px; height: 505px; left: 1095px; top: 169px; position: absolute" src="https://placehold.co/295x505" />
-</div>
-<div style="width: 1440px; height: 1024px; position: relative; background: #010C4F; overflow: hidden">
-  <div style="width: 1440px; height: 1024px; left: 0px; top: 0px; position: absolute; background: linear-gradient(90deg, rgba(211, 224, 255, 0.20) 0%, rgba(1, 12, 79, 0.20) 47%); border: 1px black solid"></div>
-  <img style="width: 94px; height: 98px; left: 1247px; top: 5px; position: absolute" src="https://placehold.co/94x98" />
-  <img style="width: 408px; height: 569px; left: 674px; top: 392px; position: absolute" src="https://placehold.co/408x569" />
-  <img style="width: 286px; height: 402px; left: 1102px; top: 141px; position: absolute" src="https://placehold.co/286x402" />
-  <img style="width: 322px; height: 288px; left: 398px; top: 54px; position: absolute" src="https://placehold.co/322x288" />
-  <img style="width: 282px; height: 408px; left: 1106px; top: 553px; position: absolute" src="https://placehold.co/282x408" />
-  <img style="width: 229.34px; height: 290.70px; left: 398px; top: 358px; position: absolute" src="https://placehold.co/229x291" />
-  <img style="width: 608.68px; height: 302.82px; left: 45px; top: 655px; position: absolute" src="https://placehold.co/609x303" />
-  <img style="width: 368.22px; height: 313.22px; left: 740px; top: 54px; position: absolute" src="https://placehold.co/368x313" />
-  <img style="width: 347px; height: 586px; left: 31px; top: 54px; position: absolute" src="https://placehold.co/347x586" />
-</div>
-<div style="width: 1440px; height: 1024px; position: relative; background: #010C4F; overflow: hidden">
-  <div style="width: 1440px; height: 1024px; left: 0px; top: 0px; position: absolute; background: linear-gradient(90deg, rgba(211, 224, 255, 0.20) 0%, rgba(1, 12, 79, 0.20) 47%); border: 1px black solid"></div>
-  <img style="width: 94px; height: 98px; left: 1247px; top: 896px; position: absolute" src="https://placehold.co/94x98" />
-  <img style="width: 524px; height: 257px; left: 36px; top: 69px; position: absolute" src="https://placehold.co/524x257" />
-  <img style="width: 272px; height: 323px; left: 36px; top: 349px; position: absolute" src="https://placehold.co/272x323" />
-  <img style="width: 288px; height: 258px; left: 566px; top: 69px; position: absolute" src="https://placehold.co/288x258" />
-  <img style="width: 319px; height: 323px; left: 319px; top: 349px; position: absolute" src="https://placehold.co/319x323" />
-  <img style="width: 258px; height: 323px; left: 649px; top: 349px; position: absolute" src="https://placehold.co/258x323" />
-  <img style="width: 486px; height: 257px; left: 861px; top: 69px; position: absolute" src="https://placehold.co/486x257" />
-  <img style="width: 216px; height: 272px; left: 36px; top: 695px; position: absolute" src="https://placehold.co/216x272" />
-  <img style="width: 204px; height: 272px; left: 275px; top: 695px; position: absolute" src="https://placehold.co/204x272" />
-  <img style="width: 639px; height: 275px; left: 502px; top: 694px; position: absolute" src="https://placehold.co/639x275" />
-  <img style="width: 427px; height: 332px; left: 920px; top: 349px; position: absolute" src="https://placehold.co/427x332" />
-</div>
+  <!-- THE FRONT SCROLLING LAYER: Floating directly over the collage elements -->
+  <div class="text-h-scroll">
+    <div class="exp-card">
+      <div class="exp-pill">HackUTD Axxess Hackathon</div>
+      <div class="exp-body">
+        <p>HackUTD Axxess Hackathon Preparation:
+A week after I was onboarded to the HackUTD team, the axxess hackathon had to be prepared for, and with little to no experience I learned two things. Hope for the best, plan for the worst. Despite being praised by my coworkers for the preparation, the execution of it taught me to be flexible, to have multiple back-up plans, the ability to compromise, knowing the strengths of my teammates and planning with them as a priority. </p>
+      </div>
+    </div>
+    
+    <div class="exp-card">
+      <div class="exp-pill">Marketing Final project</div>
+      <div class="exp-body">
+        <p>During one my second year fall semester, I was put in a group project where we were tasked with hypothetically creating or improving a product or service and plan its marketing strategy from scratch. We created a brand of fully customizable bras and I took on the roll of project manager. Here I learned how to organize multiple student’s schedules, and trusting my teammates, as it was a project I could not have done all on y own in the span of four months. I also learned how to use excel as I was tasked with the financial end of our strategy for our pitch. I made a preliminary hypothetical production and advertisement budget and ROI for our product for the first four quarters.</p>
+      </div>
+    </div>
+
+    <div class="exp-card">
+      <div class="exp-pill">Summer Camp Counselor</div>
+      <div class="exp-body">
+        <p>I worked with kids from ages 2-12. I learned to collaborate with other counselors at 15 while also following orders from the supervising teachers that taught me a lot of empathy and admiration towards them while also learning to collaborate, negotiate, and storytell as a way to get children to understand the activities, and a LOT of conflict resolution. </p>
+      </div>
+    </div>
+
+
+    <div class="exp-card">
+      <div class="exp-pill">Honorable Mentions</div>
+      <div class="exp-body">
+        <p>
+~ Designed my Senior Year High School Posters and Tickets. 
+~ Designed the background assets for the first three sections of https://zeroday.hackutd.co/ and the train station asset. (not the character on the train).
+~Designed the backdrop rooms and doors for my high school production of Clue.
+~ Acted as the Director in my Project Management for MAD in a short film trailer called “Not Like Other Girls”
+~ Co-hosted a single episode podcast for my Intorduction to Techoculture course.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+  <!-- ===================== GALLERY ===================== -->
+  <section id="gallery">
+    <div class="section-inner" style="padding-top:110px;">
+      <h2 class="script-heading" style="font-size:clamp(40px,6vw,64px);">Gallery</h2>
+      <p class="eyebrow-note">a collection of some of my work...</p>
+
+      <div class="h-scroll-wrap">
+      <div class="h-scroll" id="galleryScroll">
+        <div class="gallery-strip">
+          <img src="./images/gallery1.png" alt="Gallery artwork collection 1">
+          <img src="./images/gallery2.png" alt="Gallery artwork collection 2">
+          <img src="./images/gallery3.png" alt="Gallery artwork collection 3">
+          <img src="./images/gallery4.png" alt="Gallery artwork collection 4">
+        </div>
+      </div>
+      <button class="scroll-next-btn" data-scroll-target="galleryScroll" aria-label="Scroll gallery forward">
+        <img src="./images/next_button.png" alt="">
+      </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact">
+    <div class="contact-inner"style="display:flex; flex-direction:column; align-items:center; text-align:center;">
+      <h2 class="script-heading contact-title">Let's stay in touch</h2>
+
+      <div class="contact-blocks">
+        <div class="contact-block">
+          <h3>Personal / Business</h3>
+          <a href="mailto:andrea.s.alvidres@gmail.com">
+            ✉ andrea.s.alvidres@gmail.com
+          </a>
+        </div>
+        <div class="contact-block">
+          <h3>School</h3>
+          <a href="mailto:Andrea.Alvidres@utdallas.edu">
+            ✉ Andrea.Alvidres@utdallas.edu
+          </a>
+        </div>
+      </div>
+
+      <footer>&copy; <span id="year"></span> My Portfolio. All rights reserved.</footer>
+    </div>
+  </section>
+
+  <script>
+    (function(){
+      "use strict";
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      /* ---------- Mobile sidebar toggle ---------- */
+      var toggle = document.getElementById('navToggle');
+      var sideNav = document.getElementById('sideNav');
+      toggle.addEventListener('click', function(){
+        var isOpen = sideNav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+
+      /* ---------- Smooth scroll + close mobile nav on click ---------- */
+      var dots = Array.prototype.slice.call(document.querySelectorAll('.nav-dot'));
+      dots.forEach(function(dot){
+        dot.addEventListener('click', function(){
+          if (window.innerWidth <= 860){
+            sideNav.classList.remove('open');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+
+      /* ---------- Active section highlighting ---------- */
+      var sections = Array.prototype.slice.call(document.querySelectorAll('section[id]'));
+      var byId = {};
+      dots.forEach(function(d){ byId[d.dataset.target] = d; });
+
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting){
+            dots.forEach(function(d){ d.classList.remove('active'); });
+            var match = byId[entry.target.id];
+            if (match) match.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+
+      sections.forEach(function(s){ observer.observe(s); });
+
+      /* ---------- Horizontal scroll helper ----------
+         Lets mouse-wheel scroll horizontally inside a strip. When the
+         strip has reached either edge, the wheel event is released so
+         the page continues its normal vertical scroll/snap. */
+      function enableWheelHorizontal(el){
+        el.addEventListener('wheel', function(e){
+          var atStart = el.scrollLeft <= 0;
+          var atEnd = Math.ceil(el.scrollLeft + el.clientWidth) >= el.scrollWidth;
+          var scrollingDown = e.deltaY > 0;
+
+          if ((scrollingDown && !atEnd) || (!scrollingDown && !atStart)){
+            e.preventDefault();
+            el.scrollLeft += e.deltaY;
+          }
+        }, { passive:false });
+
+        /* ---------- Drag-to-scroll for mouse/trackpad ---------- */
+        var isDown = false, startX = 0, startScroll = 0;
+        el.addEventListener('mousedown', function(e){
+          isDown = true;
+          startX = e.pageX;
+          startScroll = el.scrollLeft;
+        });
+        window.addEventListener('mouseup', function(){ isDown = false; });
+        window.addEventListener('mousemove', function(e){
+          if (!isDown) return;
+          el.scrollLeft = startScroll - (e.pageX - startX);
+        });
+      }
+
+      enableWheelHorizontal(document.getElementById('eduScroll'));
+      enableWheelHorizontal(document.getElementById('galleryScroll'));
+
+      /* ---------- "Next" buttons for the horizontal strips ---------- */
+      var nextButtons = Array.prototype.slice.call(document.querySelectorAll('.scroll-next-btn'));
+      nextButtons.forEach(function(btn){
+        btn.addEventListener('click', function(){
+          var target = document.getElementById(btn.dataset.scrollTarget);
+          if (!target) return;
+          var atEnd = Math.ceil(target.scrollLeft + target.clientWidth) >= target.scrollWidth;
+          target.scrollBy({
+            left: atEnd ? -target.clientWidth * 0.85 : target.clientWidth * 0.85,
+            behavior: 'smooth'
+          });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
